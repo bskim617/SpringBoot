@@ -16,11 +16,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name="user2")
-public class User2VO {
+@Table(name="user4")
+public class User4VO {
+	
 	@Id
-	private String uid;
+	private int seq;
 	private String name;
-	private String hp;
+	private int gender;
 	private int age;
+	private String addr;
 }
