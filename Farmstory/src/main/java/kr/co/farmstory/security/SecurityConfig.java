@@ -2,6 +2,7 @@ package kr.co.farmstory.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
@@ -30,11 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// 사이트 위조 방지설정
 		http.csrf().disable();
 
-		/*
 		// 로그인 설정
 		http.formLogin()
 		.loginPage("/user/login")
-		.defaultSuccessUrl("/list")
+		.defaultSuccessUrl("/index")
 		.failureUrl("/user/login?success=100")
 		.usernameParameter("uid")
 		.passwordParameter("pass");
@@ -44,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.invalidateHttpSession(true)
 		.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 		.logoutSuccessUrl("/user/login?success=200");
-		 */
+
 	}
 	
 	@Autowired
