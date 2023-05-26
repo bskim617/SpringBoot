@@ -19,6 +19,7 @@ import kr.co.voard.jwt.JWTUtil;
 import kr.co.voard.repository.UserEntity;
 import kr.co.voard.security.MyUserDetails;
 import kr.co.voard.security.SecurityUserService;
+import kr.co.voard.service.UserService;
 import kr.co.voard.vo.UserVO;
 import lombok.extern.log4j.Log4j2;
 
@@ -29,10 +30,15 @@ public class UserController {
 	
 	@Autowired
 	private SecurityUserService securityUserService;
+	
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
 	@Autowired
 	private JWTUtil jwtUtil;
+	
+	@Autowired
+	private UserService service;
 	
 	@ResponseBody
 	@PostMapping("/user/login")
